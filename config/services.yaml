@@ -5,6 +5,9 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
 
+imports:
+    - { resource: supported_clients.yaml }
+
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -26,6 +29,8 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
-    # App\Controller\MainController:
-    #     arguments:
-    #         - '@App\Service\ArticleGetterService'
+    App\Service\ClientBehaviorGetter:
+        arguments:
+            - '@Symfony\Component\HttpFoundation\RequestStack'
+            - '%suported%'
+    

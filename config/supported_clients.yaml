@@ -1,0 +1,8 @@
+parameters:
+  suported:
+    browsers:
+      chrome: 78
+      mozilla: 1
+      safari: 23
+    mobile:
+      false

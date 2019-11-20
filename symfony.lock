@@ -2,6 +2,9 @@
     "behat/transliterator": {
         "version": "v1.2.0"
     },
+    "composer/ca-bundle": {
+        "version": "1.2.4"
+    },
     "composer/semver": {
         "version": "1.5.0"
     },
@@ -560,6 +563,9 @@
     },
     "twig/twig": {
         "version": "v2.12.1"
+    },
+    "ua-parser/uap-php": {
+        "version": "v3.9.2"
     },
     "webmozart/assert": {
         "version": "1.5.0"
