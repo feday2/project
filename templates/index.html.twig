@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div>
+    {% if app.user %}
+        ok
+    {% else %}
+        There <b>no char</b> for unregistered users
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block footer %}
+    <div>
+      {% if char is defined %}
+        One character are above
+      {% endif %}
+    </div>
+{% endblock %}
