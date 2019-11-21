@@ -2,11 +2,23 @@
 
 {% block body %}
 <div>
-    {% if app.user %}
-        ok
+{% if not userClient.supported %}
+  {{userClient.updateAction.message}} 
+  {% if userClient.updateAction.link %}
+    </br>
+    <a href="{{userClient.updateAction.link}}">Link to update</a>
+  {% endif %}
+{% else %}
+    {% if isWorkTime %}
+      {% if app.user %}
+          ok
+      {% else %}
+          There <b>no char</b> for unregistered users
+      {% endif %}
     {% else %}
-        There <b>no char</b> for unregistered users
+      We are closed!
     {% endif %}
+{% endif %}
 </div>
 {% endblock %}
 

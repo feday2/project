@@ -8,7 +8,7 @@ class UpdateAction implements UpdateActionInterface
     private $message;
     private $link;
 
-    public function __construct($message = '', $link = '')
+    public function __construct($message = '', $link = null)
     {
         $this->message = $message;
         $this->link = $link;
@@ -19,7 +19,7 @@ class UpdateAction implements UpdateActionInterface
         return $this->message;
     }
 
-    public function getLink(): string
+    public function getLink(): ?string
     {
         return $this->link;
     }

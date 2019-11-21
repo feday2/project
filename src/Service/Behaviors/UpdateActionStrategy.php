@@ -6,13 +6,14 @@ class UpdateActionStrategy
 {
     public function getUpdateAction($case): UpdateActionInterface
     {
-        $url = '';
+        $url = null;
         $message = "Please, update browser";
         switch ($case) {
             case "mobile":
                 $message = "Mobile not support never";
                 break;
             case "chrome":
+                $message = "Version not supported, please, update your chrome";
                 $url = "https://www.google.com/intl/ru/chrome/";
                 break;
             case "mozilla":
