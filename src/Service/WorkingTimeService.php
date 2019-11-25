@@ -37,9 +37,9 @@ class WorkingTimeService
         return $nextWork;
     }
 
-    private function isExceptionWork($fromDate, $nextWork)
+    private function isExceptionWork($nextWork)
     {
-        $excWork = $this->excludeDaysTimeRepo->findWorkDateBeetween($fromDate, $nextWork);
+        $excWork = $this->excludeDaysTimeRepo->findWorkDateBeetween($this->currentDateTime, $nextWork);
         foreach ( (array) $excWork as $excDate) {
             $startHour = explode(":", $excDate->getStart())[0];
             $startMin = explode(":", $excDate->getStart())[1];
