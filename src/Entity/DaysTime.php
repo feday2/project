@@ -48,7 +48,7 @@ class DaysTime
         return $this;
     }
 
-    public function getStart(): ?string
+    public function getStart(): string
     {
         return $this->start;
     }
@@ -60,7 +60,7 @@ class DaysTime
         return $this;
     }
 
-    public function getEnd(): ?string
+    public function getEnd(): string
     {
         return $this->end;
     }
@@ -70,5 +70,19 @@ class DaysTime
         $this->end = $end;
 
         return $this;
+    }
+
+    public function toArray(): array
+    {
+        return [
+            "weekDay" => $this->weekDay,
+            "start" => $this->timeToArray($this->start),
+            "end" => $this->timeToArray($this->end),
+        ];
+    }
+
+    private function timeToArray(string $stringTime): array
+    {
+        return explode(":", $stringTime);
     }
 }

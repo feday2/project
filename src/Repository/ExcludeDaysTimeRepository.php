@@ -19,32 +19,16 @@ class ExcludeDaysTimeRepository extends ServiceEntityRepository
         parent::__construct($registry, ExcludeDaysTime::class);
     }
 
-    // /**
-    //  * @return ExcludeDaysTime[] Returns an array of ExcludeDaysTime objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function findWorkDateBeetween($leftDate, $rightDate)
     {
-        return $this->createQueryBuilder('e')
-            ->andWhere('e.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('e.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        return $this->createQueryBuilder('d')
+        ->where('d.isWork = 1')
+        ->andWhere('d.date BETWEEN :leftDate AND :rightDate')
+        ->setParameter('leftDate', $leftDate->format('Y-m-d'))
+        ->setParameter('rightDate', $rightDate->format('Y-m-d'))
+        ->orderBy('d.date', 'ASC')
+        ->getQuery()
+        ->getResult();
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?ExcludeDaysTime
-    {
-        return $this->createQueryBuilder('e')
-            ->andWhere('e.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

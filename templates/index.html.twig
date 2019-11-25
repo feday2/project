@@ -9,14 +9,15 @@
     <a href="{{userClient.updateAction.link}}">Link to update</a>
   {% endif %}
 {% else %}
-    {% if isWorkTime %}
+    {% if timeToWork %}
+      We are closed!</br>
+      Time to open: {{ timeToWork.format('%d%')*24 + timeToWork.format('%h%')}}:{{ timeToWork.format('%I%') }}:{{ timeToWork.format('%S%') }}
+    {% else %}
       {% if app.user %}
           ok
       {% else %}
           There <b>no char</b> for unregistered users
       {% endif %}
-    {% else %}
-      We are closed!
     {% endif %}
 {% endif %}
 </div>

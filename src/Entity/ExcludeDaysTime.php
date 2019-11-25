@@ -19,7 +19,7 @@ class ExcludeDaysTime
     /**
      * @ORM\Column(type="date")
      */
-    private $Date;
+    private $date;
 
     /**
      * @ORM\Column(type="string", length=5)
@@ -43,12 +43,12 @@ class ExcludeDaysTime
 
     public function getDate(): ?\DateTimeInterface
     {
-        return $this->Date;
+        return $this->date;
     }
 
-    public function setDate(\DateTimeInterface $Date): self
+    public function setDate(\DateTimeInterface $date): self
     {
-        $this->Date = $Date;
+        $this->date = $date;
 
         return $this;
     }
